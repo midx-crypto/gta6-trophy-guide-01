@@ -3,23 +3,112 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Nights — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="All 55 GTA 6 PlayStation 5 trophies with cited guides, a platinum roadmap, missable alerts, spoiler mode and a saved checklist. Works fully offline.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header id="top" class="masthead">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">LN</span>
+    <div>
+      <h1>Leonida Nights</h1>
+      <p class="tagline">GTA 6 Trophy Guide &amp; Tracker &mdash; PlayStation 5</p>
+    </div>
+  </div>
+  <p class="intro">All 55 trophies with official names, descriptions and grades, cited guides, and a saved checklist. One playthrough, ~200 hours, no online trophies.</p>
+  <div class="dash">
+  <dl id="audit" class="audit" aria-label="Trophy list audit">
+    <div><dt>Trophies</dt><dd id="audit-total">55 / 55</dd></div>
+    <div><dt>Platinum</dt><dd>1</dd></div>
+    <div><dt>Gold</dt><dd>2</dd></div>
+    <div><dt>Silver</dt><dd>6</dd></div>
+    <div><dt>Bronze</dt><dd>46</dd></div>
+    <div><dt>Hidden</dt><dd>28</dd></div>
+    <div><dt>Online</dt><dd>0</dd></div>
+    <div><dt>Time</dt><dd>~200 h</dd></div>
+  </dl>
+  <section id="progress" class="progress" aria-label="Your progress">
+    <div class="progress-text"><strong id="earned-count">0 / 55 earned</strong><span id="earned-pct">0%</span></div>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+    <p class="progress-note" id="progress-note">Tick a trophy when you earn it. Progress is saved in this browser and survives reloads.</p>
+  </section>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<nav id="toolbar" class="toolbar" aria-label="Guide controls">
+  <div class="toolbar-top">
+  <div class="tabs" role="tablist" aria-label="Views">
+    <button id="tab-checklist" class="tab active" data-view="checklist" role="tab" aria-selected="true">Checklist</button>
+    <button id="tab-roadmap" class="tab" data-view="roadmap" role="tab" aria-selected="false">Platinum roadmap</button>
+    <button id="tab-missable" class="tab" data-view="missable" role="tab" aria-selected="false">Missable watch</button>
+  </div>
+  <label class="search">Search <input id="search" type="search" placeholder="Trophy, mission or keyword…" autocomplete="off"></label>
+  </div>
+  <div id="filters" class="filters" role="group" aria-label="Filter trophies by kind">
+    <button class="chip active" data-filter="all">All <b>55</b></button>
+    <button class="chip" data-filter="story">Story <b>12</b></button>
+    <button class="chip" data-filter="missable">Missable <b>1</b></button>
+    <button class="chip" data-filter="collectibles">Collectibles <b>6</b></button>
+    <button class="chip" data-filter="activities">Activities <b>35</b></button>
+    <button class="chip" data-filter="online">Online <b>0</b></button>
+    <button class="chip" data-filter="earned">Earned <b id="count-earned">0</b></button>
+    <button class="chip" data-filter="remaining">Remaining <b id="count-remaining">55</b></button>
+  </div>
+  <div class="tools">
+    <label class="spoiler-toggle"><input id="spoiler-toggle" type="checkbox"> Spoiler mode: hide story names</label>
+    <button id="export-btn" class="tool-btn" type="button">Export progress</button>
+    <button id="import-btn" class="tool-btn" type="button">Import progress</button>
+    <input id="import-file" type="file" accept="application/json,.json" hidden>
+    <button id="reset-btn" class="tool-btn danger" type="button">Reset</button>
+  </div>
+  <p id="link-banner" class="link-banner" hidden></p>
+</nav>
+
+<main id="main">
+  <section id="view-checklist" class="view" aria-label="Trophy checklist">
+    <h2>All 55 trophies</h2>
+    <p id="list-status" class="list-status" role="status"></p>
+    <ol id="trophy-list" class="trophy-list"></ol>
+    <p id="empty-state" class="empty-state" hidden>No trophies match this filter. There are no online trophies: every one of the 55 is single-player and offline.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum: <span class="plat-name">Vice Got a Price!</span></h2>
+    <p class="roadmap-lede">One playthrough, five chapters, about 60 to 80 hours of story and about 200 hours to the platinum (PowerPyx). No mission replay and no mission medals, so play at your own pace; free roam continues after the story. Keep cheats off: they disable trophies and saving. Save at the start and end of each chapter: 15 manual slots plus 1 autosave.</p>
+    <ol id="roadmap-stages" class="roadmap"></ol>
+    <p class="roadmap-foot">After the finale, the 100% checklist (Progress, then Stats, then 100% Completion) is the last big job. PowerPyx calls it lenient, about 60% of true completion: 70 of 80 challenges, 15 of 18 meditations, 300 stunts, all robberies, underwater discoveries, shooting ranges, drone races and Bret&rsquo;s quests, and 15 of 18 card sets. Then <strong>A Long Road</strong> pops, and the platinum follows.</p>
+  </section>
+
+  <section id="view-missable" class="view" hidden aria-label="Missable trophies">
+    <h2>Missable watch</h2>
+    <div id="missable-list" class="missable-list"></div>
+    <h3>Checked safe: looks missable, is not</h3>
+    <ul class="safe-list">
+      <li><strong>Kenton goes quiet after Chapter 1</strong> and returns later. His treasure diving strand, and its trophy, are not missable. (PowerPyx)</li>
+      <li><strong>The Kingpin Bowling robbery comes back later.</strong> Let&rsquo;s Go Bowling is not missable. (PowerPyx)</li>
+      <li><strong>Optional missions disappear over time,</strong> but there are far more than the 100 the checklist needs. (PowerPyx)</li>
+      <li><strong>Some fences leave for good.</strong> None of them has a trophy quest. (PowerPyx)</li>
+      <li><strong>A few magazine collectibles sit in story buildings that close off.</strong> They also spawn elsewhere. (PowerPyx)</li>
+      <li><strong>Quests with an hourglass icon can fail on a timer.</strong> None is tied to a trophy. (PowerPyx)</li>
+      <li><strong>All 12 story trophies are unmissable.</strong> They pop automatically as the story plays. (PowerPyx, Sixshore)</li>
+    </ul>
+  </section>
+</main>
+
+<footer id="sources" class="sources">
+  <h2>Sources &amp; method</h2>
+  <p>Official names, descriptions and grades match the 55-trophy list as published by PSNProfiles and Exophase and cross-checked against PowerPyx and GTABase. Every guide above is written in our own words and cites its source beside it. Where PowerPyx lists a trigger as not yet known, this guide says so instead of guessing. Counts in parentheses come from the PS5 tracker on PSNProfiles via those guides. List checked 19 Nov 2026; the game unlocked in New Zealand on 18 Nov 2026.</p>
+  <ul class="source-links">
+    <li><a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx &mdash; GTA 6 Trophy Guide &amp; Roadmap</a> (18 Nov 2026)</li>
+    <li><a href="https://www.powerpyx.com/gta-6-100-completion-checklist-guide/">PowerPyx &mdash; GTA 6 100% Completion Checklist Guide</a></li>
+    <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase &mdash; GTA 6 achievements and trophies list</a></li>
+    <li><a href="https://sixshore.com/gta-6/guides/trophies-and-achievements/">Sixshore &mdash; GTA 6 Trophy and Achievement List</a></li>
+    <li>PSNProfiles, TrueTrophies, Exophase and Push Square trophy lists (named, no link)</li>
+  </ul>
+  <p class="fineprint">Unofficial fan guide. Not affiliated with Rockstar Games. No Rockstar logo, artwork or game screenshots are used. Works fully offline: it loads only its own files and fetches nothing.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
